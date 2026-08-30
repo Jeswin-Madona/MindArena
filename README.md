@@ -15,6 +15,24 @@
   multiplayer competitions, real-time synchronization, and intelligent feedback.
 </p>
 
+# 🧠 MindArena
+
+### AI-Powered Quiz & Multiplayer Contest Platform
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,vite,tailwind,supabase,postgres,javascript,git,github" />
+  &nbsp;
+  <img src="https://cdn.simpleicons.org/n8n/EA4B71" height="48" alt="n8n"/>
+</p>
+
+<p align="center">
+  <b>React</b> • <b>Vite</b> • <b>Tailwind CSS</b> • <b>Supabase</b> • <b>PostgreSQL</b> • <b>n8n</b>
+</p>
+
+<p align="center">
+  An AI-powered platform that combines interactive quiz practice,
+  multiplayer competitions, real-time synchronization, and intelligent feedback.
+</p>
 ---
 
 ## ✨ Features
