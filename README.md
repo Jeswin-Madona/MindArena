@@ -1,9 +1,3 @@
-Your existing README is already quite comprehensive. Since you've reorganized the repository into `docs/`, `schemas/`, and `screenshots/`, I recommend making the **main README more GitHub-friendly** and moving deep technical details to the documentation files.
-
-Here is an updated professional `README.md` you can use:
-
----
-
 # 🧠 MindArena - AI-Powered Quiz & Multiplayer Contest Platform
 
 > **Learn. Compete. Improve.**
