@@ -2,6 +2,44 @@
 
 > **Learn. Compete. Improve.**
 
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react" height="48" alt="React"/>
+  <img src="https://skillicons.dev/icons?i=vite" height="48" alt="Vite"/>
+  <img src="https://skillicons.dev/icons?i=tailwind" height="48" alt="Tailwind CSS"/>
+  <img src="https://skillicons.dev/icons?i=supabase" height="48" alt="Supabase"/>
+  <img src="https://skillicons.dev/icons?i=postgres" height="48" alt="PostgreSQL"/>
+  <img src="https://skillicons.dev/icons?i=n8n" height="48" alt="n8n"/>
+  <img src="https://skillicons.dev/icons?i=javascript" height="48" alt="JavaScript"/>
+</p>
+
+<p align="center">
+  <strong>React</strong> •
+  <strong>Vite</strong> •
+  <strong>Tailwind CSS</strong> •
+  <strong>Supabase</strong> •
+  <strong>PostgreSQL</strong> •
+  <strong>n8n</strong>
+</p>
+
+---
+
+
+### AI-Powered Quiz & Multiplayer Contest Platform
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,vite,tailwind,supabase,postgres,n8n,javascript,git,github" />
+</p>
+
+<p align="center">
+  <b>React</b> • <b>Vite</b> • <b>Tailwind CSS</b> • <b>Supabase</b> • <b>PostgreSQL</b> • <b>n8n</b>
+</p>
+
+<p align="center">
+  An AI-powered platform that combines interactive quiz practice,
+  multiplayer competitions, real-time synchronization, and intelligent feedback.
+</p>
+---
+
 MindArena is a modern AI-powered quiz platform that combines **individual practice** with **real-time multiplayer quiz contests**.
 
 Users can generate quizzes on custom topics, practice independently, receive AI-generated performance feedback, create multiplayer contest rooms, invite players using room codes, compete in synchronized quiz sessions, and view results on a leaderboard.
@@ -688,7 +726,7 @@ A contest creation interface where hosts can configure the quiz topic, difficult
 
 ### 🎯 Solo Practice Mode
 
-![MindArena Solo Practice](Mind-Arena/screenshots/solo_practice_form.png)
+![MindArena Solo Practice](Mind-Arena/screenshots/solo_practice_form.PNG)
 
 An AI-powered quiz generation interface that allows users to create personalized practice quizzes based on their preferred topic, difficulty, and number of questions.
 
@@ -846,23 +884,6 @@ git push origin feature/feature-name
 
 7. Open a Pull Request
 
----
-
-# 📄 License
-
-This project is currently intended for educational and development purposes.
-
-Add an appropriate open-source license before using the project for public distribution.
-
----
-
-# 👨‍💻 Author
-
-**MindArena Project**
-
-Built using:
-
-**React • Vite • Tailwind CSS • Supabase • PostgreSQL • n8n**
 
 ---
 
@@ -875,7 +896,25 @@ MindArena aims to make learning more engaging by combining:
 The goal is to transform traditional quizzes into an interactive and competitive learning experience where users can **learn individually, compete together, and continuously improve**.
 
 ---
+# 👨‍💻 Author
 
-## ⭐ If you like this project
+## Jeswin Madona
 
-Consider giving the repository a **star ⭐** and sharing your feedback!
+MindArena was designed and developed by **Jeswin Madona** as an AI-powered quiz and multiplayer contest platform.
+
+Built with:
+
+**React • Vite • Tailwind CSS • Supabase • PostgreSQL • n8n**
+
+### 🌐 Connect with Me
+
+- 💻 GitHub: [Jeswin-Madona](https://github.com/Jeswin-Madona)
+- 🔗 LinkedIn: [Jeswin Madona](https://www.linkedin.com/in/jeswinmadona/)
+
+---
+
+ **star** 
+
+## ⭐ If you found this project interesting,
+
+  Feel free to **star ⭐ the repository** and connect with me!
