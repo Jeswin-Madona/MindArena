@@ -1,95 +1,149 @@
+Your existing README is already quite comprehensive. Since you've reorganized the repository into `docs/`, `schemas/`, and `screenshots/`, I recommend making the **main README more GitHub-friendly** and moving deep technical details to the documentation files.
+
+Here is an updated professional `README.md` you can use:
+
+---
+
 # 🧠 MindArena - AI-Powered Quiz & Multiplayer Contest Platform
 
-MindArena is a modern AI-powered quiz platform that combines **solo practice quizzes** with **real-time multiplayer quiz contests**.
+> **Learn. Compete. Improve.**
 
-Users can generate quizzes on any topic, practice individually, receive AI-generated feedback, create multiplayer contest rooms, invite other players using a room code, compete together, and view contest results and leaderboards.
+MindArena is a modern AI-powered quiz platform that combines **individual practice** with **real-time multiplayer quiz contests**.
 
-The application uses a React frontend, Supabase for authentication and database management, and n8n workflows for backend automation and AI-powered quiz operations.
+Users can generate quizzes on custom topics, practice independently, receive AI-generated performance feedback, create multiplayer contest rooms, invite players using room codes, compete in synchronized quiz sessions, and view results on a leaderboard.
+
+The platform combines a modern React frontend with **Supabase** for authentication and data persistence, and **n8n workflows** for backend automation and AI-powered operations.
 
 ---
 
 ## ✨ Features
 
-### 🎯 Practice Mode
+### 🎯 AI-Powered Practice Mode
 
-- Generate AI-powered quizzes
-- Select custom topics
-- Choose difficulty levels
-- Configure the number of questions
-- Answer questions interactively
-- View quiz results
-- Receive AI-generated performance feedback
-- Responsive quiz interface
-
----
+* Generate quizzes on custom topics
+* Select difficulty levels
+* Configure the number of questions
+* Interactive question-by-question quiz experience
+* Instant score calculation
+* AI-generated performance feedback
+* Responsive practice interface
 
 ### ⚔️ Multiplayer Contest Arena
 
-- Create multiplayer quiz rooms
-- Generate unique room codes
-- Join contests using room codes
-- Support multiple players
-- Real-time lobby updates using polling
-- Host-controlled contest start
-- Synchronized contest experience
-- Question timer
-- Submit answers and results
-- Contest results page
-- Multiplayer leaderboard
-
----
+* Create multiplayer quiz rooms
+* Generate unique room codes
+* Join contests using room codes
+* Support multiple players
+* Live lobby player updates
+* Host-controlled contest start
+* Synchronized multiplayer experience
+* Question timer
+* Server-side result submission
+* Contest results page
+* Ranked leaderboard
 
 ### 🔐 Authentication
 
-- User authentication using Supabase
-- Secure session management
-- Protected application routes
-- User profile integration
-- Login and logout functionality
+* Supabase authentication
+* Username and password login
+* Session persistence
+* Protected routes
+* User profile integration
+* Logout functionality
+* Password recovery support
+
+### ⏳ Professional Loading Experience
+
+MindArena includes loading states for operations that depend on backend workflows.
+
+Users receive visual feedback while waiting for:
+
+* Quiz generation
+* Contest creation
+* Room joining
+* Contest loading
+* AI feedback generation
+* Result processing
+
+This improves the user experience when n8n workflows require additional processing time.
 
 ---
 
-### 🤖 AI Integration
+# 🏗️ Technology Stack
 
-MindArena uses n8n workflows to handle AI-powered operations such as:
+## Frontend
 
-- Quiz generation
-- Quiz retrieval
-- AI performance feedback
-- Contest room management
-- Contest question management
-- Result submission
-- Leaderboard generation
+* React 18
+* Vite
+* React Router DOM
+* Tailwind CSS
+* Lucide React
+
+## Backend Automation
+
+* n8n
+* Webhooks
+* Workflow automation
+* AI-powered quiz processing
+
+## Database & Authentication
+
+* Supabase
+* PostgreSQL
+* Supabase Authentication
+
+## Development Tools
+
+* JavaScript
+* REST APIs
+* Vite Development Proxy
+* Git & GitHub
 
 ---
 
-## 🏗️ Technology Stack
+# 🏛️ System Architecture
 
-### Frontend
+```text
+                           ┌──────────────┐
+                           │     User     │
+                           └──────┬───────┘
+                                  │
+                                  ▼
+                    ┌─────────────────────────┐
+                    │    React + Vite App     │
+                    │                         │
+                    │  Practice │ Multiplayer │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │     Central API Layer   │
+                    │       src/lib/api.js    │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │       Vite Proxy        │
+                    │         /n8n/*          │
+                    └────────────┬────────────┘
+                                 │
+                                 ▼
+                    ┌─────────────────────────┐
+                    │          n8n            │
+                    │    Workflow Engine      │
+                    └────────────┬────────────┘
+                                 │
+                    ┌────────────┴────────────┐
+                    ▼                         ▼
+          ┌─────────────────┐       ┌─────────────────┐
+          │ AI / Quiz Logic │       │    Supabase     │
+          │                 │       │ Database + Auth │
+          └─────────────────┘       └─────────────────┘
+```
 
-- React 18
-- Vite
-- React Router DOM
-- Tailwind CSS
-- Lucide React Icons
+For detailed architecture documentation, see:
 
-### Backend & Automation
-
-- n8n
-- Webhooks
-- Workflow automation
-
-### Database & Authentication
-
-- Supabase
-- PostgreSQL
-- Supabase Authentication
-
-### Development
-
-- JavaScript
-- REST APIs
-- Vite Development Proxy
+📄 [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md)
 
 ---
 
@@ -98,22 +152,29 @@ MindArena uses n8n workflows to handle AI-powered operations such as:
 ```text
 mindarena/
 │
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
+├── docs/
+│   ├── API_CONTRACTS.md
+│   ├── PROJECT_DOCUMENTATION.md
+│   └── README.md
+│
+├── schemas/
+│   └── database_schema.sql
+│
+├── screenshots/
+│   └── application screenshots
+│
+├── workflows/
+│   ├── Generate Quiz Workflow.json
+│   ├── Get Quiz Workflow.json
+│   ├── AI Feedback Workflow.json
+│   └── MindArena Management.json
 │
 ├── src/
 │   │
-│   ├── main.jsx
-│   ├── App.jsx
-│   ├── index.css
-│   │
 │   ├── components/
+│   │   ├── arena/
 │   │   ├── common/
-│   │   ├── layout/
-│   │   └── arena/
+│   │   └── layout/
 │   │
 │   ├── context/
 │   │   └── AuthContext.jsx
@@ -122,128 +183,97 @@ mindarena/
 │   │   ├── api.js
 │   │   └── supabaseClient.js
 │   │
-│   └── pages/
-│       │
-│       ├── Login.jsx
-│       ├── Home.jsx
-│       │
-│       ├── arena/
-│       │   ├── CreateRoom.jsx
-│       │   ├── JoinRoom.jsx
-│       │   ├── Lobby.jsx
-│       │   ├── LiveContest.jsx
-│       │   ├── ContestResults.jsx
-│       │   └── Leaderboard.jsx
-│       │
-│       └── practice/
-│           ├── PracticeGenerate.jsx
-│           ├── PracticeQuiz.jsx
-│           └── PracticeResults.jsx
+│   ├── pages/
+│   │   ├── arena/
+│   │   ├── practice/
+│   │   ├── Home.jsx
+│   │   └── Login.jsx
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 │
-├── workflows/
-│   ├── Generate Quiz Workflow.json
-│   ├── Get Quiz Workflow.json
-│   ├── AI Feedback Workflow.json
-│   └── MindArena Management.json
-│
-├── schemas/
-│   └── Database Schema.sql
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── vite.config.js
+├── tailwind.config.js
+├── postcss.config.js
 │
 └── README.md
-````
-
----
-
-# 🔄 Application Architecture
-
-```text
-                    ┌──────────────────┐
-                    │      User        │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ React Frontend   │
-                    │   + Vite         │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │  Vite Proxy      │
-                    │   /n8n/*         │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │       n8n        │
-                    │ Workflow Engine  │
-                    └───────┬──────────┘
-                            │
-               ┌────────────┴────────────┐
-               ▼                         ▼
-      ┌────────────────┐       ┌────────────────┐
-      │ AI / Quiz Logic │       │   Supabase     │
-      │   Workflows     │       │ Database/Auth  │
-      └────────────────┘       └────────────────┘
 ```
 
 ---
 
-# 🔌 n8n Workflow Architecture
-
-MindArena communicates with n8n using webhook endpoints.
-
-The frontend sends requests through a centralized API layer:
+# 🔄 Application Flow
 
 ```text
-src/lib/api.js
-```
-
-All API communication is handled from this file.
-
-Example architecture:
-
-```text
-Frontend
-   │
-   ▼
-api.createRoom()
-   │
-   ▼
-POST /n8n/arena-management-test
-   │
-   ▼
-Vite Proxy
-   │
-   ▼
-n8n Webhook
-   │
-   ▼
-Workflow Router
-   │
-   ├── createRoom
-   ├── joinRoom
-   ├── getRoom
-   ├── startContest
-   ├── getContest
-   ├── submitResult
-   └── getLeaderboard
+                         ┌──────────────┐
+                         │    Login     │
+                         └──────┬───────┘
+                                │
+                                ▼
+                         ┌──────────────┐
+                         │     Home     │
+                         └──────┬───────┘
+                                │
+              ┌─────────────────┴─────────────────┐
+              │                                   │
+              ▼                                   ▼
+      ┌───────────────┐                   ┌────────────────┐
+      │ Practice Mode │                   │ Contest Arena  │
+      └───────┬───────┘                   └───────┬────────┘
+              │                                   │
+              ▼                                   ▼
+      Generate AI Quiz                   Create / Join Room
+              │                                   │
+              ▼                                   ▼
+         Take Quiz                              Lobby
+              │                                   │
+              ▼                                   ▼
+        View Results                         Start Contest
+              │                                   │
+              ▼                                   ▼
+       AI Feedback                        Live Multiplayer Quiz
+                                                  │
+                                                  ▼
+                                            Submit Results
+                                                  │
+                                                  ▼
+                                             Leaderboard
 ```
 
 ---
 
-# ⚔️ Multiplayer Contest Flow
+# ⚔️ Multiplayer Contest Workflow
 
-## 1. Create Contest
+The multiplayer system is managed through a centralized n8n workflow.
 
-The host creates a contest by providing:
+## Supported Operations
+
+| Action           | Description                       |
+| ---------------- | --------------------------------- |
+| `createRoom`     | Creates a new contest room        |
+| `joinRoom`       | Adds a player to an existing room |
+| `getRoom`        | Retrieves room and player details |
+| `startContest`   | Starts the contest                |
+| `getContest`     | Retrieves contest questions       |
+| `submitResult`   | Submits a player's result         |
+| `getLeaderboard` | Returns ranked contest results    |
+
+---
+
+## Create Contest
+
+The host creates a room by providing:
 
 * Topic
 * Difficulty
 * Number of questions
 * Maximum players
 
-Request example:
+Example request:
 
 ```json
 {
@@ -257,21 +287,19 @@ Request example:
 }
 ```
 
-The backend:
+The workflow:
 
-1. Generates a quiz
-2. Creates a room
+1. Generates or retrieves the quiz
+2. Creates a contest room
 3. Generates a unique room code
-4. Adds the host to `room_players`
+4. Adds the host as the first player
 5. Returns room information
 
 ---
 
-## 2. Join Contest
+## Join Contest
 
-Players join using the room code.
-
-Example request:
+Players join using a room code.
 
 ```json
 {
@@ -284,214 +312,154 @@ Example request:
 
 The workflow validates:
 
-* Room exists
-* Contest has not started
-* Room is not full
-* User has not already joined
+* Room existence
+* Contest status
+* Maximum player limit
+* Duplicate players
 
-Then the player is added to the database.
+After validation, the player is added to the room.
 
 ---
 
-## 3. Lobby Synchronization
+## Lobby Synchronization
 
-The lobby periodically fetches room information.
+MindArena currently uses polling for multiplayer synchronization.
 
 ```text
-Host creates room
+Player joins room
        │
        ▼
-Player joins
+Supabase database updated
        │
        ▼
-Database updated
+Lobby polls room status
        │
        ▼
-Lobby polls room state
+Player list refreshes
        │
        ▼
-Player list updates
+All users see updated lobby
 ```
 
-Polling allows multiple browser sessions to stay synchronized without requiring WebSockets.
+When the host starts the contest, connected players detect the room status change during polling and automatically transition into the contest.
 
 ---
 
-## 4. Start Contest
-
-Only the host can start the contest.
-
-The backend:
-
-1. Validates the host
-2. Updates room status
-3. Loads contest questions
-4. Makes the contest available to all players
-
-Other players detect the status change during polling and automatically move to the contest screen.
-
----
-
-## 5. Live Contest
-
-During the contest:
-
-* Questions are displayed sequentially
-* Players select answers
-* A timer tracks completion
-* Answers are collected
-* Results are submitted to the backend
-
-Example:
-
-```json
-{
-  "action": "submitResult",
-  "room_id": "room-id",
-  "user_id": "user-id",
-  "player_name": "Player Name",
-  "completion_time_seconds": 120,
-  "answers": []
-}
-```
-
----
-
-## 6. Leaderboard
-
-After results are submitted, the leaderboard ranks players based on:
-
-1. Score
-2. Completion time
-
-The leaderboard periodically refreshes to show updated rankings.
-
----
-
-# 🗄️ Database Architecture
+# 🗄️ Database
 
 MindArena uses Supabase PostgreSQL.
 
-Main tables include:
+The database schema is available here:
+
+📄 [`schemas/database_schema.sql`](schemas/database_schema.sql)
+
+Core tables include:
 
 ### `profiles`
 
 Stores user profile information.
 
-```text
-id
-username
-full_name
-avatar_url
-created_at
-```
-
----
-
 ### `rooms`
 
-Stores multiplayer contest rooms.
-
-```text
-id
-room_code
-host_id
-quiz_id
-topic
-difficulty
-number_of_questions
-max_players
-status
-created_at
-```
-
----
+Stores multiplayer contest room information.
 
 ### `room_players`
 
-Stores players participating in a room.
-
-```text
-id
-room_id
-user_id
-player_name
-is_host
-joined_at
-```
-
----
+Stores players participating in each room.
 
 ### `contest_results`
 
-Stores player contest results.
-
-```text
-id
-room_id
-user_id
-score
-completion_time_seconds
-answers
-created_at
-```
+Stores submitted contest results and scores.
 
 ---
 
 # 🔐 Authentication
 
-Authentication is handled using Supabase.
+Authentication is powered by Supabase.
 
-The application manages:
+The application supports:
 
 * User login
 * Session persistence
-* Logout
 * Protected routes
-* Current user information
+* User profile management
+* Logout
+* Password recovery
 
-Protected pages redirect unauthenticated users to the login screen.
+Unauthenticated users are redirected to the login page when attempting to access protected application areas.
 
 ---
 
-# 🌐 Vite Proxy Configuration
+# 🔌 API Architecture
 
-During development, the frontend communicates with n8n through a Vite proxy.
-
-Example:
-
-```js
-server: {
-  port: 5173,
-  proxy: {
-    '/n8n': {
-      target: 'http://localhost:5678',
-      changeOrigin: true,
-      secure: false,
-      rewrite: (path) =>
-        path.replace(/^\/n8n/, '/webhook'),
-    },
-  },
-}
-```
-
-This allows the frontend to call:
+All frontend API communication is centralized in:
 
 ```text
+src/lib/api.js
+```
+
+This provides a single communication layer between the React frontend and n8n workflows.
+
+```text
+React Component
+       │
+       ▼
+src/lib/api.js
+       │
+       ▼
+Vite Proxy
+       │
+       ▼
+n8n Webhook
+       │
+       ▼
+Workflow Router
+       │
+       ├── Quiz Generation
+       ├── Quiz Retrieval
+       ├── AI Feedback
+       └── Arena Management
+```
+
+Detailed API request and response formats are available in:
+
+📄 [`docs/API_CONTRACTS.md`](docs/API_CONTRACTS.md)
+
+---
+
+# 🌐 Development Proxy
+
+During development, requests are routed through the Vite proxy.
+
+This prevents browser CORS issues when communicating with a locally running n8n instance.
+
+Example flow:
+
+```text
+Frontend Request
+
 http://localhost:5173/n8n/...
-```
 
-while Vite forwards requests to:
+        │
+        ▼
 
-```text
+Vite Development Proxy
+
+        │
+        ▼
+
 http://localhost:5678/webhook/...
 ```
 
-This helps avoid browser CORS issues during local development.
+The exact configuration can be found in:
+
+```text
+vite.config.js
+```
 
 ---
 
-# ⚙️ Installation
+# ⚙️ Installation & Setup
 
 ## 1. Clone the Repository
 
@@ -500,69 +468,85 @@ git clone <repository-url>
 cd mindarena
 ```
 
----
-
 ## 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
----
-
 ## 3. Configure Environment Variables
 
-Create a `.env` file.
+Copy the example environment file:
 
-Example:
+```bash
+cp .env.example .env
+```
+
+Update `.env` with your credentials:
 
 ```env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_N8N_BASE_URL=your_n8n_base_url
 ```
 
-Configure any additional environment variables required by your deployment.
-
-> Never commit sensitive environment variables to GitHub.
+> ⚠️ Never commit your actual `.env` file to GitHub.
 
 ---
 
-## 4. Start n8n
+## 4. Configure Supabase
 
-Make sure your local n8n instance is running.
-
-Default local URL:
+1. Create a Supabase project.
+2. Open the SQL Editor.
+3. Run the provided database schema:
 
 ```text
-http://localhost:5678
+schemas/database_schema.sql
 ```
+
+4. Configure authentication.
+5. Configure Row Level Security policies as required.
 
 ---
 
-## 5. Configure Workflows
+## 5. Configure n8n
 
-Import the workflow JSON files from:
+Import the workflow files from:
 
 ```text
 workflows/
 ```
 
-into your n8n instance.
+The workflows include:
 
-Ensure all workflows are properly published and the webhook paths match the frontend API configuration.
+* Quiz generation
+* Quiz retrieval
+* AI feedback
+* Multiplayer arena management
+
+Ensure:
+
+* Webhook paths match the frontend configuration
+* Required credentials are configured
+* Supabase credentials are connected
+* AI provider credentials are configured
+* Workflows are published/available
 
 ---
 
-## 6. Configure Supabase
+## 6. Start n8n
 
-Create the required database tables using the provided schema.
+For local development:
 
-Configure:
+```bash
+n8n start
+```
 
-* Supabase URL
-* Anonymous key
-* Authentication providers
-* Row Level Security policies
+Default URL:
+
+```text
+http://localhost:5678
+```
 
 ---
 
@@ -572,7 +556,7 @@ Configure:
 npm run dev
 ```
 
-The application will run at:
+The application will be available at:
 
 ```text
 http://localhost:5173
@@ -580,44 +564,50 @@ http://localhost:5173
 
 ---
 
-# 📡 API Operations
+# 🛠 Development Commands
 
-The Arena Management workflow supports the following actions.
+### Start Development Server
 
-| Action           | Description                           |
-| ---------------- | ------------------------------------- |
-| `createRoom`     | Creates a multiplayer contest room    |
-| `joinRoom`       | Adds a player to a room               |
-| `getRoom`        | Retrieves room and player information |
-| `startContest`   | Starts the contest                    |
-| `getContest`     | Retrieves contest questions           |
-| `submitResult`   | Submits player results                |
-| `getLeaderboard` | Retrieves ranked contest results      |
+```bash
+npm run dev
+```
+
+### Build Production Version
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
 
 ---
 
-# 🛠 Error Handling
+# 🚨 Error Handling
 
-All frontend API calls are centralized inside:
+MindArena centralizes API error handling through:
 
 ```text
 src/lib/api.js
 ```
 
-The application normalizes common failures including:
+Common errors include:
 
-### Network Errors
+### Network Error
 
 ```text
 Could not reach the server.
 ```
 
-Usually indicates:
+Possible causes:
 
 * n8n is not running
 * Incorrect webhook URL
-* Vite proxy configuration issue
-* Network connectivity issue
+* Vite proxy issue
+* Network interruption
 
 ---
 
@@ -627,14 +617,14 @@ Usually indicates:
 The server sent back an unexpected response.
 ```
 
-Usually indicates that the backend returned HTML instead of JSON.
+Usually means the frontend expected JSON but received another response format.
 
-Common causes:
+Possible causes:
 
-* HTTP 500 error
-* Workflow execution failure
-* Incorrect Respond to Webhook configuration
-* Invalid webhook path
+* n8n workflow returned HTTP 500
+* Workflow execution failed
+* Respond to Webhook node is misconfigured
+* Invalid webhook endpoint
 
 ---
 
@@ -644,52 +634,72 @@ Common causes:
 The requested webhook is not registered.
 ```
 
-Usually indicates:
+Possible causes:
 
-* Workflow is not published
 * Incorrect webhook path
-* Using a test webhook instead of production webhook
-* n8n workflow is not active/published
+* Workflow is not published
+* Workflow is inactive
+* Test and production webhook URLs are mixed
 
 ---
 
-# 🔧 Development Commands
+# 🎨 UI & UX
 
-Start development server:
+MindArena follows a modern competitive learning and gaming-inspired design.
 
-```bash
-npm run dev
-```
+Key design principles include:
 
-Build production application:
-
-```bash
-npm run build
-```
-
-Preview production build:
-
-```bash
-npm run preview
-```
-
----
-
-# 🎨 UI and UX
-
-MindArena is designed as a modern competitive gaming and learning platform.
-
-Key UI principles:
-
-* Dark gaming-inspired interface
+* Dark modern interface
 * Responsive layouts
-* Mobile-friendly components
-* Interactive quiz cards
-* Clear contest status indicators
-* Player lobby visualization
+* Mobile-friendly design
+* Clear visual hierarchy
+* Interactive quiz components
 * Professional loading states
-* Error feedback
+* User-friendly error messages
+* Contest-focused experience
 * Consistent design system
+
+---
+
+# 📸 Screenshots
+
+Application screenshots can be found in:
+
+```text
+screenshots/
+```
+
+You can add preview images to this README later using:
+
+```markdown
+![MindArena Home](screenshots/home.png)
+```
+
+```markdown
+![Contest Lobby](screenshots/lobby.png)
+```
+
+```markdown
+![Live Contest](screenshots/contest.png)
+```
+
+---
+
+# 📚 Documentation
+
+Additional project documentation is available in the `docs/` directory.
+
+| Document                                                    | Description                                 |
+| ----------------------------------------------------------- | ------------------------------------------- |
+| [`API_CONTRACTS.md`](docs/API_CONTRACTS.md)                 | API request and response contracts          |
+| [`PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md) | Complete technical project documentation    |
+| [`docs/README.md`](docs/README.md)                          | Extended project overview and documentation |
+
+Database resources:
+
+| Resource                                             | Description              |
+| ---------------------------------------------------- | ------------------------ |
+| [`database_schema.sql`](schemas/database_schema.sql) | Supabase database schema |
 
 ---
 
@@ -697,107 +707,81 @@ Key UI principles:
 
 Potential future enhancements include:
 
-* WebSocket-based real-time synchronization
-* Live player presence indicators
-* Contest chat
-* Player avatars
+* WebSocket or Supabase Realtime synchronization
+* Live player presence
 * Public contest discovery
-* Friend system
 * Global leaderboard
+* Player profiles and avatars
+* Friend system
+* XP and leveling
 * Achievement badges
-* XP and leveling system
 * Contest history
-* Quiz categories
-* Question difficulty analytics
-* Admin dashboard
+* Quiz analytics
+* Question difficulty analysis
+* Contest chat
+* Team-based contests
+* Tournament brackets
 * Anti-cheating mechanisms
+* Admin dashboard
 * Email notifications
 * Push notifications
-* Tournament brackets
-* Team-based contests
 
 ---
 
 # 🧩 Key Design Decisions
 
-### Centralized API Layer
+## Centralized API Layer
 
-All backend communication is handled through:
+All frontend-to-backend communication is handled through:
 
 ```text
 src/lib/api.js
 ```
 
-This prevents duplicated fetch logic and makes backend changes easier to manage.
+This prevents duplicated request logic and simplifies backend maintenance.
 
 ---
 
-### Workflow-Based Backend
+## Workflow-Based Backend
 
-Instead of building a traditional backend server, MindArena uses n8n workflows for:
+Instead of a traditional backend server, MindArena uses n8n workflows for:
 
-* Request routing
+* Request handling
 * Database operations
 * Quiz generation
-* AI operations
-* Contest management
+* AI integration
+* Contest room management
+* Result processing
+* Leaderboard generation
 
-This allows rapid workflow development and visual backend debugging.
+This approach enables visual workflow management and rapid backend iteration.
 
 ---
 
-### Polling for Multiplayer Synchronization
+## Polling-Based Multiplayer Synchronization
 
-The application currently uses polling for synchronization.
+The current implementation uses polling.
 
-Advantages:
+Advantages include:
 
 * Simple architecture
-* No WebSocket infrastructure required
+* No dedicated WebSocket server
 * Works across multiple browser sessions
-* Easy integration with n8n
+* Easy integration with n8n workflows
 
-Future versions can migrate to Supabase Realtime or WebSockets for lower-latency synchronization.
+A future version could migrate to:
 
----
+* Supabase Realtime
+* WebSockets
+* Server-Sent Events
 
-# 📊 Typical Application Flow
-
-```text
-                 ┌───────────────┐
-                 │     Login     │
-                 └───────┬───────┘
-                         │
-                         ▼
-                  ┌─────────────┐
-                  │    Home     │
-                  └──────┬──────┘
-                         │
-          ┌──────────────┴──────────────┐
-          │                             │
-          ▼                             ▼
-   ┌──────────────┐              ┌──────────────┐
-   │ Practice Quiz│              │ Multiplayer  │
-   └──────┬───────┘              └──────┬───────┘
-          │                             │
-          ▼                             ▼
-   Generate Quiz                  Create / Join
-          │                             │
-          ▼                             ▼
-      Take Quiz                       Lobby
-          │                             │
-          ▼                             ▼
-       Results                     Live Contest
-          │                             │
-          ▼                             ▼
-     AI Feedback                   Leaderboard
-```
+for lower-latency synchronization.
 
 ---
 
 # 🤝 Contributing
 
-Contributions, improvements, and feature suggestions are welcome.
+Contributions and improvements are welcome.
 
 Recommended workflow:
 
@@ -808,7 +792,7 @@ Recommended workflow:
 git checkout -b feature/feature-name
 ```
 
-3. Make your changes
+3. Make changes
 4. Test the application
 5. Commit changes
 
@@ -816,7 +800,7 @@ git checkout -b feature/feature-name
 git commit -m "Add feature"
 ```
 
-6. Push the branch
+6. Push your branch
 
 ```bash
 git push origin feature/feature-name
@@ -828,7 +812,7 @@ git push origin feature/feature-name
 
 # 📄 License
 
-This project is intended for educational and development purposes.
+This project is currently intended for educational and development purposes.
 
 Add an appropriate open-source license before using the project for public distribution.
 
@@ -838,41 +822,22 @@ Add an appropriate open-source license before using the project for public distr
 
 **MindArena Project**
 
-An AI-powered quiz and multiplayer contest platform built with:
+Built using:
 
-**React • Vite • Tailwind CSS • Supabase • n8n**
+**React • Vite • Tailwind CSS • Supabase • PostgreSQL • n8n**
 
 ---
 
-## ⭐ Project Vision
+# 🌟 Project Vision
 
 MindArena aims to make learning more engaging by combining:
 
 > **Artificial Intelligence + Competitive Gaming + Collaborative Learning**
 
-The goal is to transform traditional quizzes into interactive, competitive, and personalized learning experiences.
+The goal is to transform traditional quizzes into an interactive and competitive learning experience where users can **learn individually, compete together, and continuously improve**.
 
-````
+---
 
-### Recommendation
+## ⭐ If you like this project
 
-Since your project is now working, I recommend keeping **three documentation files** in the repository:
-
-```text
-README.md
-````
-
-→ For GitHub visitors and installation instructions.
-
-```text
-ARCHITECTURE.md
-```
-
-→ Detailed frontend + n8n + Supabase architecture.
-
-```text
-API_CONTRACTS.md
-```
-
-→ Exact request/response formats for all n8n actions.
-
+Consider giving the repository a **star ⭐** and sharing your feedback!
