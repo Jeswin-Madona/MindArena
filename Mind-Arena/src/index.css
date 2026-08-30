@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-void text-ink font-body antialiased;
+  background-image: radial-gradient(circle at 20% -10%, rgba(124,92,252,0.18), transparent 45%),
+    radial-gradient(circle at 100% 0%, rgba(255,184,77,0.10), transparent 40%);
+  background-attachment: fixed;
+}
+
+* {
+  scrollbar-color: #3E2F8A #151935;
+}
+
+:focus-visible {
+  outline: 2px solid #7C5CFC;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-border rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply bg-violet hover:bg-violet-soft text-white font-semibold rounded-xl px-5 py-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-raised hover:bg-border text-ink font-semibold rounded-xl px-5 py-3 transition-colors border border-border disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-amber {
+    @apply bg-amber hover:bg-amber-soft text-void font-bold rounded-xl px-5 py-3 transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .input-field {
+    @apply w-full bg-void border border-border rounded-xl px-4 py-3 text-ink placeholder:text-muted focus:border-violet outline-none transition-colors;
+  }
+
+  .label-eyebrow {
+    @apply text-xs font-mono uppercase tracking-[0.2em] text-violet-soft;
+  }
+
+  /* Ticket-stub room code badge: the signature element */
+  .ticket {
+    position: relative;
+    @apply bg-raised border border-border rounded-2xl px-8 py-5 inline-flex flex-col items-center;
+    background-image: radial-gradient(circle, #0B0E27 3px, transparent 3.5px);
+    background-size: 14px 100%;
+    background-position: left center, right center;
+    background-repeat: repeat-y;
+  }
+}

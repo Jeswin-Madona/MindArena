@@ -1,0 +1,181 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## AI Performance Feedback\n\nThis workflow analyzes a student's quiz performance using Mistral AI and returns personalized learning feedback to the React application.\n\n## Simple Flow\n\n1. Receive → React sends quiz performance data.\n2. Analyze → Mistral AI evaluates the student's score and performance.\n3. Structure → Parse the AI response into feedback fields.\n4. Fallback → Provides default feedback if AI returns invalid JSON.\n5. Respond → Sends the structured feedback back to React.\n\n## In short:\n\nReact → Performance Data → Mistral AI → Parse Feedback → Return Feedback\n",
+        "height": 576,
+        "width": 454
+      },
+      "id": "2db4ee50-4579-462a-8d95-1696e996362e",
+      "name": "Sticky Note - AI Feedback",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -3120,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ai-feedback",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "2545c41a-1aad-4bf4-97dd-099d777fb091",
+      "name": "Webhook - AI Feedback",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        -2400,
+        368
+      ],
+      "webhookId": "ai-feedback"
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\n\n// Get AI Agent output\nconst content = response.output;\n\nif (!content) {\n  throw new Error(\"No output received from AI Agent\");\n}\n\nlet parsed;\n\ntry {\n\n  // Remove markdown code blocks if present\n  const cleanContent = content\n    .replace(/```json/gi, \"\")\n    .replace(/```/g, \"\")\n    .trim();\n\n  parsed = JSON.parse(cleanContent);\n\n} catch (error) {\n\n  // Fallback feedback if AI returns invalid JSON\n  const webhookData = $(\"Webhook - AI Feedback\").first().json.body;\n\n  parsed = {\n    overall_performance:\n      `Great effort! You scored ${webhookData.percentage}% on the ${webhookData.difficulty || \"quiz\"} quiz about ${webhookData.topic || \"this topic\"}.`,\n\n    strengths:\n      \"You completed the quiz and demonstrated understanding of several concepts.\",\n\n    areas_to_improve:\n      \"Review the questions you answered incorrectly and revisit the related concepts.\",\n\n    practical_suggestion:\n      \"Practice another quiz on the same topic and focus on understanding explanations for incorrect answers.\"\n  };\n\n}\n\nreturn [\n  {\n    json: parsed\n  }\n];"
+      },
+      "id": "6b0acaba-02e6-40c1-8d50-ac1d829f094e",
+      "name": "Parse Structured Feedback",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [
+        -1312,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {}
+      },
+      "id": "dda9cc65-c62f-4b1d-9281-4168de1d17be",
+      "name": "Respond Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        -864,
+        368
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert AI learning tutor for the MindArena application.\n\nAnalyze the student's quiz performance and provide helpful, encouraging, and actionable feedback.\n\nQuiz Details:\n\nTopic: {{ $json.body.topic }}\n\nDifficulty: {{ $json.body.difficulty }}\n\nScore: {{ $json.body.score }} / {{ $json.body.total_questions }}\n\nPercentage: {{ $json.body.percentage }}%\n\nReturn ONLY valid JSON in exactly this format:\n\n{\n  \"overall_performance\": \"Short 1-2 sentence summary of the student's overall performance.\",\n  \"strengths\": \"Key strengths demonstrated by the student.\",\n  \"areas_to_improve\": \"Specific areas or concepts the student should improve.\",\n  \"practical_suggestion\": \"One clear and actionable study suggestion.\"\n}\n\nDo not include markdown.\nDo not include code blocks.\nDo not include any text outside the JSON object.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -2032,
+        368
+      ],
+      "id": "13a26207-45b4-4bdd-99d2-c6218f1f0506",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatMistralCloud",
+      "typeVersion": 1,
+      "position": [
+        -2064,
+        592
+      ],
+      "id": "4f2cf0ba-e412-40ac-8e9b-78a229823d5a",
+      "name": "Mistral Cloud Chat Model1",
+      "credentials": {
+        "mistralCloudApi": {
+          "id": "FwPjCIS9CtQtW2Jy",
+          "name": "Mistral Cloud account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## AI Performance Analysis\n\nReceives quiz performance data and uses Mistral AI to generate personalized feedback on strengths and areas to improve.data into a single structured response.",
+        "height": 560,
+        "width": 736,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2448,
+        160
+      ],
+      "typeVersion": 1,
+      "id": "fef3b5e3-b6da-4470-842b-25164b8d1eb1",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "## Parse & Respond\n\nParses the AI output into structured feedback, uses fallback content if needed, and returns the final response to React.",
+        "height": 400,
+        "width": 736,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1376,
+        176
+      ],
+      "typeVersion": 1,
+      "id": "f0cb56b3-8737-4e8a-aeed-d5e52210f020",
+      "name": "Sticky Note13"
+    }
+  ],
+  "connections": {
+    "Webhook - AI Feedback": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Structured Feedback": {
+      "main": [
+        [
+          {
+            "node": "Respond Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Parse Structured Feedback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mistral Cloud Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ce633715522fed7c810c382a8416068af510eb5efa2a068770ce7966e289da03"
+  }
+}

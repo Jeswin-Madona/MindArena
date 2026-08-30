@@ -1,0 +1,204 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "path": "get-quiz",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -2288,
+        -496
+      ],
+      "id": "05f7bb29-0bf0-4537-a4d6-8a756f8226e0",
+      "name": "Webhook",
+      "webhookId": "e41d3ebc-c46d-435e-8e4d-4b6a8ddadac8"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        -464,
+        -496
+      ],
+      "id": "357bf012-a8da-4dfe-ba3f-f8d0c87ba8c3",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "=questions",
+        "returnAll": true,
+        "orderBy": "=",
+        "matchType": "allFilters",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "quiz_id",
+              "condition": "eq",
+              "keyValue": "={{ $json.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1472,
+        -496
+      ],
+      "id": "1306776e-75cb-41ff-bca6-1d3a2b191c33",
+      "name": "Get many rows",
+      "credentials": {
+        "supabaseApi": {
+          "id": "Pa35RWBh9mZBVxQy",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "tableId": "quizzes",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "=id",
+              "keyValue": "={{ $json.query.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        -1872,
+        -496
+      ],
+      "id": "7129d872-c18f-47d9-beea-9cd2de34d58f",
+      "name": "Get a row",
+      "credentials": {
+        "supabaseApi": {
+          "id": "Pa35RWBh9mZBVxQy",
+          "name": "Supabase account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const quiz = $(\"Get a row\").first().json;\n\nconst questions = $(\"Get many rows\").all().map(item => ({\n    question: item.json.question,\n    option_a: item.json.option_a,\n    option_b: item.json.option_b,\n    option_c: item.json.option_c,\n    option_d: item.json.option_d,\n    correct_answer: item.json.correct_answer,\n    explanation: item.json.explanation\n}));\n\nreturn [\n    {\n        json: {\n            quiz: {\n                id: quiz.id,\n                topic: quiz.topic,\n                difficulty: quiz.difficulty,\n                number_of_questions: quiz.number_of_questions\n            },\n            questions: questions\n        }\n    }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -896,
+        -496
+      ],
+      "id": "b54c7fe1-78b0-4b14-ae47-d7d6226a2c43",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "content": "## Quiz Retrieval\n\nThis workflow gets a previously created quiz from Supabase and sends it to the React application.\n\n## Simple Flow\n\n1. Receive → React sends the quiz_id.\n2. Find Quiz → Get the quiz details from Supabase.\n3. Find Questions → Get all questions matching that quiz_id.\n4. Combine → Organize the quiz and questions into one response.\n5. Respond → Send the complete quiz back to React.\n\n## In short:\nReact → Quiz ID → Get Quiz → Get Questions → Combine → Return Quiz",
+        "height": 560,
+        "width": 576
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -3136,
+        -784
+      ],
+      "typeVersion": 1,
+      "id": "5cb42a7f-ecdf-4684-bc1e-8f08b6a817b9",
+      "name": "Sticky Note26"
+    },
+    {
+      "parameters": {
+        "content": "## Get Quiz\n\nReceives the quiz ID and retrieves the quiz details and its questions from Supabase.",
+        "height": 480,
+        "width": 1120,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -2384,
+        -736
+      ],
+      "typeVersion": 1,
+      "id": "50273241-4098-40bc-9fb9-31d6bb8f8275",
+      "name": "Sticky Note8"
+    },
+    {
+      "parameters": {
+        "content": "## Combine & Format\n\nCombines the quiz and question data into a single structured response and Returns the complete quiz data to the React application.",
+        "height": 416,
+        "width": 736,
+        "color": 7
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -992,
+        -720
+      ],
+      "typeVersion": 1,
+      "id": "7b7fc319-b7cc-4bcb-b03f-6367b020876e",
+      "name": "Sticky Note9"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get a row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a row": {
+      "main": [
+        [
+          {
+            "node": "Get many rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ce633715522fed7c810c382a8416068af510eb5efa2a068770ce7966e289da03"
+  }
+}
