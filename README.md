@@ -14,6 +14,7 @@
   An AI-powered platform that combines interactive quiz practice,
   multiplayer competitions, real-time synchronization, and intelligent feedback.
 </p>
+
 ---
 
 ## ✨ Features
