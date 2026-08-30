@@ -140,7 +140,7 @@ This improves the user experience when n8n workflows require additional processi
 
 For detailed architecture documentation, see:
 
-📄 [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md)
+📄 [`docs/PROJECT_DOCUMENTATION.md`](Mind-Arena/docs/PROJECT_DOCUMENTATION.md)
 
 ---
 
@@ -348,7 +348,7 @@ MindArena uses Supabase PostgreSQL.
 
 The database schema is available here:
 
-📄 [`schemas/database_schema.sql`](schemas/database_schema.sql)
+📄 [`schemas/database_schema.sql`](Mind-Arena/schemas/database_schema.sql)
 
 Core tables include:
 
@@ -420,7 +420,7 @@ Workflow Router
 
 Detailed API request and response formats are available in:
 
-📄 [`docs/API_CONTRACTS.md`](docs/API_CONTRACTS.md)
+📄 [`docs/API_CONTRACTS.md`](Mind-Arena/docs/API_CONTRACTS.md)
 
 ---
 
@@ -688,7 +688,7 @@ A contest creation interface where hosts can configure the quiz topic, difficult
 
 ### 🎯 Solo Practice Mode
 
-![MindArena Solo Practice](screenshots/solo_practice_form.png)
+![MindArena Solo Practice](Mind-Arena/screenshots/solo_practice_form.png)
 
 An AI-powered quiz generation interface that allows users to create personalized practice quizzes based on their preferred topic, difficulty, and number of questions.
 
@@ -729,15 +729,15 @@ Additional project documentation is available in the `docs/` directory.
 
 | Document                                                    | Description                                 |
 | ----------------------------------------------------------- | ------------------------------------------- |
-| [`API_CONTRACTS.md`](docs/API_CONTRACTS.md)                 | API request and response contracts          |
-| [`PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md) | Complete technical project documentation    |
-| [`docs/README.md`](docs/README.md)                          | Extended project overview and documentation |
+| [`API_CONTRACTS.md`](Mind-Arena/docs/API_CONTRACTS.md)                 | API request and response contracts          |
+| [`PROJECT_DOCUMENTATION.md`](Mind-Arena/docs/PROJECT_DOCUMENTATION.md) | Complete technical project documentation    |
+| [`docs/README.md`](Mind-Arena/docs/README.md)                          | Extended project overview and documentation |
 
 Database resources:
 
 | Resource                                             | Description              |
 | ---------------------------------------------------- | ------------------------ |
-| [`database_schema.sql`](schemas/database_schema.sql) | Supabase database schema |
+| [`database_schema.sql`](Mind-Arena/schemas/database_schema.sql) | Supabase database schema |
 
 ---
 
