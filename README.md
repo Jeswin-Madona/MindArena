@@ -694,6 +694,35 @@ An AI-powered quiz generation interface that allows users to create personalized
 
 ---
 
+# ⚔️ Multiplayer Contest Experience
+
+MindArena provides a synchronized multiplayer quiz experience where players can join a contest using a unique room code, wait in a live lobby, participate in the quiz simultaneously, and compete against other players.
+
+### 🔗 Join Contest
+
+Participants can enter a unique room code shared by the host to securely join an available multiplayer contest.
+
+![Join Contest](Mind-Arena/screenshots/multiplayer_lobby_join.png)
+
+---
+
+### 🏠 Contest Lobby
+
+Players can join a contest using a unique room code. The lobby displays contest information, joined players, and allows the host to start the contest when everyone is ready.
+
+![Contest Lobby](Mind-Arena/screenshots/contest_ready_lobby.png)
+
+---
+
+### 🎮 Live Multiplayer Quiz
+
+Once the host starts the contest, all players are moved into the live quiz experience where they answer synchronized questions and compete based on score and completion time.
+
+![Live Multiplayer Quiz](Mind-Arena/screenshots/live_multiplayer_quiz.png)
+
+---
+
+
 # 📚 Documentation
 
 Additional project documentation is available in the `docs/` directory.
