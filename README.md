@@ -97,6 +97,9 @@ This improves the user experience when n8n workflows require additional processi
 
 # 🏛️ System Architecture
 
+![MindArena Architecture](https://github.com/Jeswin-Madona/MindArena/blob/997218283e847d47cff3609828c3d3b77112bc60/Mind-Arena/screenshots/MindArena%20_Architecture.png)
+
+
 ```text
                            ┌──────────────┐
                            │     User     │
@@ -655,27 +658,39 @@ Key design principles include:
 
 ---
 
-# 📸 Screenshots
+## 📸 Application Screenshots
 
-Application screenshots can be found in:
+A visual overview of the main interfaces and user flows available in MindArena.
 
-```text
-screenshots/
-```
+### 🔐 Login Page
 
-You can add preview images to this README later using:
+![MindArena Login Page](Mind-Arena/screenshots/login_page.png)
 
-```markdown
-![MindArena Home](screenshots/home.png)
-```
+A secure and modern authentication interface where users can log in to access the MindArena platform.
 
-```markdown
-![Contest Lobby](screenshots/lobby.png)
-```
+---
 
-```markdown
-![Live Contest](screenshots/contest.png)
-```
+### 🏠 Home Dashboard
+
+![MindArena Home Dashboard](Mind-Arena/screenshots/home_dashboard.png)
+
+The central dashboard that allows users to navigate between AI-powered practice quizzes and multiplayer contest features.
+
+---
+
+### ⚔️ Create Contest
+
+![MindArena Create Contest](Mind-Arena/screenshots/create_room_form.png)
+
+A contest creation interface where hosts can configure the quiz topic, difficulty level, number of questions, and maximum number of players.
+
+---
+
+### 🎯 Solo Practice Mode
+
+![MindArena Solo Practice](screenshots/solo_practice_form.png)
+
+An AI-powered quiz generation interface that allows users to create personalized practice quizzes based on their preferred topic, difficulty, and number of questions.
 
 ---
 
