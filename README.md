@@ -1,28 +1,4 @@
-# 🧠 MindArena - AI-Powered Quiz & Multiplayer Contest Platform
-
-> **Learn. Compete. Improve.**
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=react" height="48" alt="React"/>
-  <img src="https://skillicons.dev/icons?i=vite" height="48" alt="Vite"/>
-  <img src="https://skillicons.dev/icons?i=tailwind" height="48" alt="Tailwind CSS"/>
-  <img src="https://skillicons.dev/icons?i=supabase" height="48" alt="Supabase"/>
-  <img src="https://skillicons.dev/icons?i=postgres" height="48" alt="PostgreSQL"/>
-  <img src="https://skillicons.dev/icons?i=n8n" height="48" alt="n8n"/>
-  <img src="https://skillicons.dev/icons?i=javascript" height="48" alt="JavaScript"/>
-</p>
-
-<p align="center">
-  <strong>React</strong> •
-  <strong>Vite</strong> •
-  <strong>Tailwind CSS</strong> •
-  <strong>Supabase</strong> •
-  <strong>PostgreSQL</strong> •
-  <strong>n8n</strong>
-</p>
-
----
-
+# 🧠 MindArena
 
 ### AI-Powered Quiz & Multiplayer Contest Platform
 
@@ -38,14 +14,6 @@
   An AI-powered platform that combines interactive quiz practice,
   multiplayer competitions, real-time synchronization, and intelligent feedback.
 </p>
----
-
-MindArena is a modern AI-powered quiz platform that combines **individual practice** with **real-time multiplayer quiz contests**.
-
-Users can generate quizzes on custom topics, practice independently, receive AI-generated performance feedback, create multiplayer contest rooms, invite players using room codes, compete in synchronized quiz sessions, and view results on a leaderboard.
-
-The platform combines a modern React frontend with **Supabase** for authentication and data persistence, and **n8n workflows** for backend automation and AI-powered operations.
-
 ---
 
 ## ✨ Features
